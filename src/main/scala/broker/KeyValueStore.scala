@@ -20,7 +20,7 @@ class KeyValueStore[K,V] {
   def get(k: K): Future[Option[V]] = {
     for {
       _ <- getterReq ! k
-      v <- getterRes.?
+      v <- getterRes ?
     } yield {
       v
     }
